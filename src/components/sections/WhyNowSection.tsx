@@ -1,0 +1,35 @@
+export const WhyNowSection = () => {
+  return (
+    <section className="py-20 px-4">
+      <div className="max-w-3xl mx-auto text-center space-y-8 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+        <h2 className="font-poppins text-3xl md:text-4xl font-bold">
+          Por que <span className="text-primary">2026</span>?
+        </h2>
+        
+        <div className="bg-card/50 backdrop-blur-sm border border-primary/30 rounded-xl p-8 space-y-4">
+          <div className="flex items-center justify-center gap-4 text-4xl font-poppins font-bold">
+            <span className="text-muted-foreground">2</span>
+            <span className="text-muted-foreground">+</span>
+            <span className="text-muted-foreground">0</span>
+            <span className="text-muted-foreground">+</span>
+            <span className="text-muted-foreground">2</span>
+            <span className="text-muted-foreground">+</span>
+            <span className="text-muted-foreground">6</span>
+            <span className="text-primary">=</span>
+            <span className="text-primary">10</span>
+            <span className="text-primary">=</span>
+            <span className="text-accent text-glow-gold">1</span>
+          </div>
+          
+          <p className="text-lg text-foreground font-medium">
+            Ano Universal 1: O início de um novo ciclo de 9 anos
+          </p>
+        </div>
+
+        <p className="text-lg text-muted-foreground">
+          Esta é a <span className="text-foreground font-medium">melhor janela da década</span> para plantar novas sementes no seu subconsciente.
+        </p>
+      </div>
+    </section>
+  );
+};
