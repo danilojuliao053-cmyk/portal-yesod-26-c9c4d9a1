@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import treeOfLifeYesod from '@/assets/tree-of-life-yesod.png';
 
 export const YesodSection = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -200,6 +201,14 @@ export const YesodSection = () => {
             Na Cabala, Yesod é a <span className="text-foreground">fundação</span>, a esfera que conecta o mundo material ao espiritual.
             É onde residem seus padrões mais profundos.
           </p>
+          
+          <div className="flex justify-center mt-8">
+            <img 
+              src={treeOfLifeYesod} 
+              alt="Árvore da Vida - Yesod" 
+              className="w-48 md:w-64 h-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
+            />
+          </div>
         </div>
 
         {/* Metrics Grid */}
