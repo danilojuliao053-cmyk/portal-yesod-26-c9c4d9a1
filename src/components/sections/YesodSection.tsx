@@ -265,19 +265,7 @@ export const YesodSection = () => {
         </div>
 
         {/* Chart Notes */}
-        <div className="flex justify-between gap-3 flex-wrap opacity-0 animate-fade-in" style={{
-        animationDelay: '0.6s'
-      }}>
-          <div className="min-w-[220px] flex-1 border border-white/[0.08] bg-background/55 rounded-xl p-3 shadow-[inset_0_0_40px_rgba(255,77,125,.08)]">
-            <span className="text-foreground font-black text-xs tracking-wide">BRAIN MODE</span>
-            <span className="block text-muted-foreground mt-1 text-xs">16 Hz modulação</span>
-          </div>
-          
-          <div className="min-w-[220px] flex-1 border border-white/[0.08] bg-background/55 rounded-xl p-3 shadow-[inset_0_0_40px_rgba(156,124,255,.08)] opacity-85">
-            <span className="text-foreground font-black text-xs tracking-wide">MÚSICA COMUM</span>
-            <span className="block text-muted-foreground mt-1 text-xs">Spotify • YouTube</span>
-          </div>
-        </div>
+        
 
         {/* Footer Text */}
         <p className="text-center text-sm text-muted-foreground opacity-0 animate-fade-in" style={{
