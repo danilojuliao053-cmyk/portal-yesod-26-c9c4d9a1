@@ -178,19 +178,23 @@ export const YesodSection = () => {
         ctx!.fill();
       });
 
-      // labels
+      // labels - responsive positioning
+      const isMobile = W < 500;
+      const labelX = isMobile ? plot.x + plot.w * 0.28 : plot.x + plot.w * 0.52;
+      const conLabelX = isMobile ? plot.x + plot.w * 0.35 : plot.x + plot.w * 0.58;
+      
       ctx!.fillStyle = "rgba(255,255,255,0.92)";
-      ctx!.font = "900 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial";
-      ctx!.fillText("Força do Subconsciente", plot.x + plot.w * 0.52, plot.y + plot.h * 0.16);
+      ctx!.font = `900 ${isMobile ? 12 : 16}px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial`;
+      ctx!.fillText("Força do Subconsciente", labelX, plot.y + plot.h * 0.16);
       ctx!.fillStyle = "rgba(185,185,201,0.75)";
-      ctx!.font = "800 13px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial";
-      ctx!.fillText("11M+ bits/s", plot.x + plot.w * 0.52, plot.y + plot.h * 0.22);
+      ctx!.font = `800 ${isMobile ? 11 : 13}px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial`;
+      ctx!.fillText("11M+ bits/s", labelX, plot.y + plot.h * 0.22);
       ctx!.fillStyle = "rgba(255,255,255,0.90)";
-      ctx!.font = "900 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial";
-      ctx!.fillText("Consciente", plot.x + plot.w * 0.58, conY - 12);
+      ctx!.font = `900 ${isMobile ? 12 : 14}px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial`;
+      ctx!.fillText("Consciente", conLabelX, conY - 12);
       ctx!.fillStyle = "rgba(185,185,201,0.72)";
-      ctx!.font = "800 12px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial";
-      ctx!.fillText("50 bits/s", plot.x + plot.w * 0.58, conY + 8);
+      ctx!.font = `800 ${isMobile ? 10 : 12}px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial`;
+      ctx!.fillText("50 bits/s", conLabelX, conY + 8);
     }
     draw();
     let raf: number | null = null;
