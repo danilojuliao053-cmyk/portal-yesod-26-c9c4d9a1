@@ -1,5 +1,6 @@
+import { useRef } from 'react';
 import { Sunrise, Trash2, UserCheck, Target } from 'lucide-react';
-
+import { useElementParallax } from '@/hooks/use-parallax';
 const weeks = [
   {
     week: 1,
@@ -32,10 +33,16 @@ const weeks = [
 ];
 
 export const JourneySection = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const parallax = useElementParallax(sectionRef, 0.12);
+
   return (
-    <section className="py-20 px-4">
+    <section ref={sectionRef} className="py-20 px-4">
       <div className="max-w-5xl mx-auto space-y-12">
-        <div className="text-center space-y-4 opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.2s' }}>
+        <div 
+          className="text-center space-y-4 opacity-0 animate-fade-in-scale transition-transform duration-100 ease-out" 
+          style={{ animationDelay: '0.2s', transform: `translateY(${parallax}px)` }}
+        >
           <h2 className="font-poppins text-3xl md:text-4xl font-bold">
             A Estrutura da <span className="text-primary">Jornada</span>
           </h2>

@@ -1,9 +1,17 @@
+import { useRef } from 'react';
 import { Zap } from 'lucide-react';
+import { useElementParallax } from '@/hooks/use-parallax';
 
 export const WhatIsSection = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const parallax = useElementParallax(sectionRef, 0.15);
+
   return (
-    <section className="py-20 px-4 gradient-mystic">
-      <div className="max-w-3xl mx-auto text-center space-y-8 opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.2s' }}>
+    <section ref={sectionRef} className="py-20 px-4 gradient-mystic">
+      <div 
+        className="max-w-3xl mx-auto text-center space-y-8 opacity-0 animate-fade-in-scale transition-transform duration-100 ease-out" 
+        style={{ animationDelay: '0.2s', transform: `translateY(${parallax}px)` }}
+      >
         <h2 className="font-poppins text-3xl md:text-4xl font-bold">
           O que é o <span className="text-accent text-glow-gold">Portal Yesod 26</span>?
         </h2>

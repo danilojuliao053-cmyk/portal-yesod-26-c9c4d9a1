@@ -1,11 +1,19 @@
+import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Check, Sparkles } from 'lucide-react';
+import { useElementParallax } from '@/hooks/use-parallax';
+
 const benefits = ['26 protocolos de reprogramação em áudio', 'Acesso imediato após a compra', 'Guia de acompanhamento da jornada', 'Suporte durante os 26 dias', 'Acesso vitalício ao conteúdo'];
+
 export const OfferSection = () => {
-  return <section id="offer" className="py-20 px-4 gradient-mystic">
-      <div className="max-w-2xl mx-auto opacity-0 animate-fade-in-scale" style={{
-      animationDelay: '0.2s'
-    }}>
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const parallax = useElementParallax(sectionRef, 0.1);
+
+  return <section ref={sectionRef} id="offer" className="py-20 px-4 gradient-mystic">
+      <div 
+        className="max-w-2xl mx-auto opacity-0 animate-fade-in-scale transition-transform duration-100 ease-out" 
+        style={{ animationDelay: '0.2s', transform: `translateY(${parallax}px)` }}
+      >
         <div className="bg-card border-2 border-primary/50 rounded-2xl p-8 md:p-12 space-y-8 box-glow">
           <div className="text-center space-y-4">
             <p className="text-primary font-medium tracking-wide uppercase text-sm">Oferta Especial de Lançamento</p>
