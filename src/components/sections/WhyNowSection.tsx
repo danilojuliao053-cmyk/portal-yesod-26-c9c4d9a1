@@ -6,8 +6,8 @@ export const WhyNowSection = () => {
           Por que <span className="text-primary">2026</span>?
         </h2>
         
-        <div className="bg-card/50 backdrop-blur-sm border border-primary/30 rounded-xl p-8 space-y-4">
-          <div className="flex items-center justify-center gap-4 text-4xl font-poppins font-bold">
+        <div className="bg-card/50 backdrop-blur-sm border border-primary/30 rounded-xl p-6 md:p-8 space-y-4">
+          <div className="flex items-center justify-center gap-2 md:gap-4 text-2xl md:text-4xl font-poppins font-bold flex-wrap">
             <span className="text-muted-foreground">2</span>
             <span className="text-muted-foreground">+</span>
             <span className="text-muted-foreground">0</span>
