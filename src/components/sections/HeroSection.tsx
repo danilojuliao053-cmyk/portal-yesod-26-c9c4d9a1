@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { Sparkles, ChevronDown } from 'lucide-react';
+import { useParallax } from '@/hooks/use-parallax';
 
 export const HeroSection = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const parallaxOffset = useParallax(0.3);
 
   const scrollToOffer = () => {
     document.getElementById('offer')?.scrollIntoView({ behavior: 'smooth' });
@@ -204,19 +206,20 @@ export const HeroSection = () => {
           height: '65vmin',
           top: '50%',
           left: '50%',
-          transform: 'translate(-50%, -50%)',
+          transform: `translate(-50%, calc(-50% + ${parallaxOffset * 0.5}px))`,
           borderRadius: '50%',
           background: 'conic-gradient(from 0deg, rgba(123,77,255,0.18), rgba(255,77,125,0.12), rgba(230,198,107,0.08), rgba(123,77,255,0.18))',
           filter: 'blur(38px)',
           animation: 'slowSpin 80s linear infinite',
-          zIndex: 2
+          zIndex: 2,
+          transition: 'transform 0.1s ease-out'
         }}
       />
 
       {/* Hero Content */}
       <div 
-        className="relative z-10 w-full max-w-[980px] text-center px-4"
-        style={{ zIndex: 3 }}
+        className="relative z-10 w-full max-w-[980px] text-center px-4 transition-transform duration-100 ease-out"
+        style={{ zIndex: 3, transform: `translateY(${parallaxOffset * -0.2}px)` }}
       >
         <p 
           className="font-bold tracking-[3px] text-xs mb-4"
