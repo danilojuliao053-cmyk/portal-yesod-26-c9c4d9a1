@@ -1,7 +1,8 @@
 export const CreatorSection = () => {
-  return (
-    <section className="py-20 px-4">
-      <div className="max-w-3xl mx-auto space-y-8 opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.2s' }}>
+  return <section className="py-20 px-4">
+      <div className="max-w-3xl mx-auto space-y-8 opacity-0 animate-fade-in" style={{
+      animationDelay: '0.2s'
+    }}>
         <h2 className="font-poppins text-3xl md:text-4xl font-bold text-center">
           Quem <span className="text-accent">Criou</span> o Portal
         </h2>
@@ -18,9 +19,7 @@ export const CreatorSection = () => {
           </div>
 
           <div className="space-y-4 text-muted-foreground">
-            <p>
-              Há mais de 15 anos, dedico minha vida a entender como a mente funciona em níveis profundos — e como podemos usar esse conhecimento para criar mudanças reais.
-            </p>
+            <p>Há mais de 15 anos, dedico minha vida a entender como a mente funciona em níveis profundos e como podemos usar esse conhecimento para criar mudanças reais.</p>
             <p>
               O Portal Yesod nasceu da minha própria jornada de transformação e dos ensinamentos cabalísticos que descobri ao longo do caminho.
             </p>
@@ -30,6 +29,5 @@ export const CreatorSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
