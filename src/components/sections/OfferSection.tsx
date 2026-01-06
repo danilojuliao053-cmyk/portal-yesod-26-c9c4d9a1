@@ -36,9 +36,9 @@ export const OfferSection = () => {
               <p className="text-sm text-muted-foreground">Pagamento único • Acesso vitalício</p>
             </div>
 
-            <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-poppins font-semibold text-lg py-6 box-glow">
-              <Sparkles className="w-5 h-5 mr-2" />
-              ATIVAR PORTAL YESOD AGORA
+            <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-poppins font-semibold text-sm md:text-lg px-4 md:px-6 py-5 md:py-6 box-glow">
+              <Sparkles className="w-4 h-4 md:w-5 md:h-5 mr-2 shrink-0" />
+              <span className="whitespace-nowrap">ATIVAR PORTAL YESOD AGORA</span>
             </Button>
           </div>
         </div>

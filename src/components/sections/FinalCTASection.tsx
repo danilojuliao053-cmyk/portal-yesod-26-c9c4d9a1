@@ -20,10 +20,10 @@ export const FinalCTASection = () => {
         <Button 
           onClick={scrollToOffer}
           size="lg" 
-          className="bg-primary hover:bg-primary/90 text-primary-foreground font-poppins font-semibold text-lg px-8 py-6 box-glow border border-accent/30"
+          className="bg-primary hover:bg-primary/90 text-primary-foreground font-poppins font-semibold text-sm md:text-lg px-4 md:px-8 py-5 md:py-6 box-glow border border-accent/30 w-full sm:w-auto"
         >
-          <Sparkles className="w-5 h-5 mr-2" />
-          QUERO ATRAVESSAR O PORTAL
+          <Sparkles className="w-4 h-4 md:w-5 md:h-5 mr-2 shrink-0" />
+          <span className="whitespace-nowrap">QUERO ATRAVESSAR O PORTAL</span>
         </Button>
 
         <p className="text-sm text-muted-foreground pt-8">
