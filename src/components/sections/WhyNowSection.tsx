@@ -1,7 +1,7 @@
 export const WhyNowSection = () => {
   return (
     <section className="py-20 px-4">
-      <div className="max-w-3xl mx-auto text-center space-y-8 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+      <div className="max-w-3xl mx-auto text-center space-y-8 opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.2s' }}>
         <h2 className="font-poppins text-3xl md:text-4xl font-bold">
           Por que <span className="text-primary">2026</span>?
         </h2>

@@ -111,6 +111,10 @@ export default {
           "0%": { opacity: "0", transform: "scale(0.5)" },
           "100%": { opacity: "1", transform: "scale(1)" },
         },
+        "fade-in-scale": {
+          "0%": { opacity: "0", transform: "translateY(12px) scale(0.96)" },
+          "100%": { opacity: "1", transform: "translateY(0) scale(1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -122,6 +126,7 @@ export default {
         "particle": "particle 15s linear infinite",
         "slide-up": "slide-up 0.3s ease-out forwards",
         "count-up": "count-up 0.5s ease-out forwards",
+        "fade-in-scale": "fade-in-scale 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards",
       },
     },
   },
