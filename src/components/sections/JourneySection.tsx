@@ -35,7 +35,7 @@ export const JourneySection = () => {
   return (
     <section className="py-20 px-4">
       <div className="max-w-5xl mx-auto space-y-12">
-        <div className="text-center space-y-4 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+        <div className="text-center space-y-4 opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.2s' }}>
           <h2 className="font-poppins text-3xl md:text-4xl font-bold">
             A Estrutura da <span className="text-primary">Jornada</span>
           </h2>
@@ -46,7 +46,7 @@ export const JourneySection = () => {
           {weeks.map((week, index) => (
             <div
               key={week.week}
-              className="bg-card/50 backdrop-blur-sm border border-border hover:border-primary/50 rounded-xl p-6 transition-all duration-300 opacity-0 animate-fade-in"
+              className="bg-card/50 backdrop-blur-sm border border-border hover:border-primary/50 rounded-xl p-6 transition-all duration-300 opacity-0 animate-fade-in-scale"
               style={{ animationDelay: `${0.3 + index * 0.1}s` }}
             >
               <div className="flex items-start gap-4">

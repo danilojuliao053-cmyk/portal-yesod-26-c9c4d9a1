@@ -23,7 +23,7 @@ const faqs = [
 export const FAQSection = () => {
   return (
     <section className="py-20 px-4 gradient-mystic">
-      <div className="max-w-2xl mx-auto space-y-8 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+      <div className="max-w-2xl mx-auto space-y-8 opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.2s' }}>
         <h2 className="font-poppins text-3xl md:text-4xl font-bold text-center">
           Perguntas <span className="text-primary">Frequentes</span>
         </h2>

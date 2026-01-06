@@ -8,7 +8,7 @@ export const FinalCTASection = () => {
 
   return (
     <section className="py-20 px-4">
-      <div className="max-w-3xl mx-auto text-center space-y-8 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+      <div className="max-w-3xl mx-auto text-center space-y-8 opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.2s' }}>
         <h2 className="font-poppins text-3xl md:text-4xl font-bold">
           O portal está <span className="text-primary text-glow">aberto</span>.
         </h2>

@@ -3,7 +3,7 @@ import { ShieldCheck } from 'lucide-react';
 export const GuaranteeSection = () => {
   return (
     <section className="py-20 px-4">
-      <div className="max-w-2xl mx-auto opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+      <div className="max-w-2xl mx-auto opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.2s' }}>
         <div className="bg-card/50 backdrop-blur-sm border border-accent/30 rounded-xl p-8 text-center space-y-6">
           <ShieldCheck className="w-16 h-16 text-accent mx-auto" />
           

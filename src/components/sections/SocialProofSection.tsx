@@ -76,7 +76,7 @@ export const SocialProofSection = () => {
     <section ref={sectionRef} className="py-20 px-4 gradient-mystic">
       <div className="max-w-5xl mx-auto space-y-12">
         {/* Counter */}
-        <div className="text-center space-y-4 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+        <div className="text-center space-y-4 opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.2s' }}>
           <p className="text-6xl md:text-7xl font-poppins font-bold text-primary text-glow">
             +<AnimatedCounter target={847} isVisible={isVisible} />
           </p>
@@ -90,7 +90,7 @@ export const SocialProofSection = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.name}
-              className="bg-card/50 backdrop-blur-sm border border-primary/20 rounded-xl p-6 space-y-4 opacity-0 animate-fade-in"
+              className="bg-card/50 backdrop-blur-sm border border-primary/20 rounded-xl p-6 space-y-4 opacity-0 animate-fade-in-scale"
               style={{ animationDelay: `${0.4 + index * 0.1}s` }}
             >
               <Quote className="w-8 h-8 text-primary/40" />
