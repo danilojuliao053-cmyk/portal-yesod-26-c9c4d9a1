@@ -3,7 +3,7 @@ import { Check, Sparkles } from 'lucide-react';
 const benefits = ['26 protocolos de reprogramação em áudio', 'Acesso imediato após a compra', 'Guia de acompanhamento da jornada', 'Suporte durante os 26 dias', 'Acesso vitalício ao conteúdo'];
 export const OfferSection = () => {
   return <section id="offer" className="py-20 px-4 gradient-mystic">
-      <div className="max-w-2xl mx-auto opacity-0 animate-fade-in" style={{
+      <div className="max-w-2xl mx-auto opacity-0 animate-fade-in-scale" style={{
       animationDelay: '0.2s'
     }}>
         <div className="bg-card border-2 border-primary/50 rounded-2xl p-8 md:p-12 space-y-8 box-glow">

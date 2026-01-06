@@ -210,7 +210,7 @@ export const YesodSection = () => {
   return <section className="py-20 px-4 gradient-mystic">
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Header */}
-        <div className="text-center space-y-6 opacity-0 animate-fade-in" style={{
+        <div className="text-center space-y-6 opacity-0 animate-fade-in-scale" style={{
         animationDelay: '0.3s'
       }}>
           <h2 className="font-poppins text-3xl md:text-4xl font-bold">
@@ -228,7 +228,7 @@ export const YesodSection = () => {
         </div>
 
         {/* Metrics Grid */}
-        <div className="grid md:grid-cols-2 gap-4 opacity-0 animate-fade-in" style={{
+        <div className="grid md:grid-cols-2 gap-4 opacity-0 animate-fade-in-scale" style={{
         animationDelay: '0.4s'
       }}>
           <div className="rounded-2xl p-4 bg-background/55 border border-white/[0.08] backdrop-blur-md">
@@ -255,14 +255,14 @@ export const YesodSection = () => {
         </div>
 
         {/* Chart Title */}
-        <h3 className="text-center font-extrabold text-[clamp(16px,2vw,22px)] text-foreground/95 opacity-0 animate-fade-in" style={{
+        <h3 className="text-center font-extrabold text-[clamp(16px,2vw,22px)] text-foreground/95 opacity-0 animate-fade-in-scale" style={{
         animationDelay: '0.5s'
       }}>
           119% Aumento de foco
         </h3>
 
         {/* Canvas Chart */}
-        <div className="opacity-0 animate-fade-in" style={{
+        <div className="opacity-0 animate-fade-in-scale" style={{
         animationDelay: '0.55s'
       }}>
           <canvas ref={canvasRef} className="w-full h-[360px] block rounded-2xl bg-black/[0.08]" />
@@ -272,7 +272,7 @@ export const YesodSection = () => {
         
 
         {/* Footer Text */}
-        <p className="text-center text-sm text-muted-foreground opacity-0 animate-fade-in" style={{
+        <p className="text-center text-sm text-muted-foreground opacity-0 animate-fade-in-scale" style={{
         animationDelay: '0.65s'
       }}>
           Seu subconsciente é <span className="text-foreground font-medium">220.000x mais poderoso</span>. É lá que a verdadeira mudança acontece.
