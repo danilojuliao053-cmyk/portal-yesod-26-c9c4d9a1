@@ -7,16 +7,32 @@ import {
 
 const faqs = [
   {
-    question: 'Preciso ter conhecimento prévio de Cabala?',
-    answer: 'Não. O Portal Yesod foi projetado para funcionar independentemente do seu background. Os comandos em áudio trabalham diretamente no subconsciente, sem necessidade de estudo teórico.',
+    question: 'Quando posso começar?',
+    answer: 'Imediatamente após a compra. O primeiro áudio é liberado na hora.',
   },
   {
-    question: 'Quanto tempo preciso dedicar por dia?',
-    answer: 'Cada protocolo de áudio tem entre 10 a 15 minutos. Recomendamos ouvir pela manhã ou antes de dormir, quando a mente está mais receptiva.',
+    question: 'Quanto tempo por dia eu preciso dedicar?',
+    answer: 'Entre 3 e 7 minutos por áudio, mais 10 minutos de escuta da vibração ao final.',
   },
   {
-    question: 'Posso começar em qualquer época ou precisa ser em 2026?',
-    answer: 'Você pode começar a qualquer momento! Porém, 2026 é um Ano Universal 1, o que amplifica significativamente o poder de novos começos e reprogramações profundas.',
+    question: 'Os áudios ficam disponíveis por quanto tempo?',
+    answer: 'Você tem acesso completo durante toda a jornada de 26 dias.',
+  },
+  {
+    question: 'E se eu perder um dia?',
+    answer: 'Nada é perdido. O próximo áudio é liberado assim que você retornar.',
+  },
+  {
+    question: 'Isso é religião?',
+    answer: 'Não. O Portal Yesod 26 é uma jornada de reprogramação comportamental baseada em padrões subconscientes.',
+  },
+  {
+    question: 'Funciona para quem nunca fez nada parecido?',
+    answer: 'Sim. O método foi criado justamente para quem nunca conseguiu manter disciplina em outros métodos.',
+  },
+  {
+    question: 'Tem garantia?',
+    answer: 'Sim. Você tem 7 dias para testar sem risco. Se não sentir que é para você, devolvemos 100% do valor.',
   },
 ];
 

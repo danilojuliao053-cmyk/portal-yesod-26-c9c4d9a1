@@ -1,32 +1,33 @@
 import { useRef } from 'react';
 import { Sunrise, Trash2, UserCheck, Target } from 'lucide-react';
 import { useElementParallax } from '@/hooks/use-parallax';
+
 const weeks = [
   {
     week: 1,
     title: 'Despertar de Yesod',
-    description: 'Acessar e reconhecer os padrões ocultos que te controlam.',
+    description: 'Mapear, entender e interromper o automático.',
     icon: Sunrise,
     color: 'text-primary',
   },
   {
     week: 2,
     title: 'Limpeza de Padrões',
-    description: 'Dissolver bloqueios e crenças limitantes no nível subconsciente.',
+    description: 'Eliminar ciclos que sabotam você há anos.',
     icon: Trash2,
     color: 'text-destructive',
   },
   {
     week: 3,
     title: 'Construção de Identidade',
-    description: 'Instalar novos padrões alinhados com quem você quer ser.',
+    description: 'Parar de agir por impulso e começar a agir por decisão.',
     icon: UserCheck,
     color: 'text-accent',
   },
   {
     week: 4,
     title: 'Materialização',
-    description: 'Ancorar as mudanças no mundo físico através de ações concretas.',
+    description: 'Transformar alinhamento interno em comportamento real.',
     icon: Target,
     color: 'text-green-500',
   },
@@ -44,7 +45,7 @@ export const JourneySection = () => {
           style={{ animationDelay: '0.2s', transform: `translateY(${parallax}px)` }}
         >
           <h2 className="font-poppins text-3xl md:text-4xl font-bold">
-            A Estrutura da <span className="text-primary">Jornada</span>
+            A <span className="text-primary">Jornada</span>
           </h2>
           <p className="text-muted-foreground">4 semanas de transformação profunda</p>
         </div>

@@ -240,7 +240,7 @@ export const HeroSection = () => {
         </h1>
         
         <p 
-          className="mx-auto max-w-[720px] mb-7 leading-relaxed"
+          className="mx-auto max-w-[720px] mb-5 leading-relaxed"
           style={{
             fontSize: 'clamp(16px, 2vw, 20px)',
             color: 'rgba(185,185,201,0.92)'
@@ -249,6 +249,16 @@ export const HeroSection = () => {
           26 dias para reprogramar seu subconsciente e{' '}
           <b className="text-white">despertar o potencial</b>{' '}
           que você sempre soube que existia.
+        </p>
+
+        <p 
+          className="mx-auto max-w-[720px] mb-7 leading-relaxed text-sm"
+          style={{
+            color: 'rgba(185,185,201,0.72)'
+          }}
+        >
+          2026 é um Ano Universal 1.<br />
+          A melhor janela da década para sair do modo automático em qualquer momento do ano.
         </p>
         
         <button 
@@ -267,7 +277,7 @@ export const HeroSection = () => {
           className="mt-4 text-sm"
           style={{ color: 'rgba(185,185,201,0.65)' }}
         >
-          + de 847 pessoas já iniciaram a jornada
+          Mais de 847 pessoas já iniciaram a jornada.
         </p>
       </div>
 

@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import { Zap } from 'lucide-react';
 import { useElementParallax } from '@/hooks/use-parallax';
 
 export const WhatIsSection = () => {
@@ -16,17 +15,32 @@ export const WhatIsSection = () => {
           O que é o <span className="text-accent text-glow-gold">Portal Yesod 26</span>?
         </h2>
         
-        <p className="text-lg text-muted-foreground leading-relaxed">
-          Uma jornada de <span className="text-foreground font-medium">26 dias</span> com comandos diários em áudio, projetados para reprogramar padrões profundos do seu subconsciente.
-        </p>
+        <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+          <p>
+            O Portal Yesod 26 é uma jornada de <span className="text-foreground font-medium">26 dias</span> entregue em áudios diários.
+          </p>
+          <p>
+            Você não compra um curso para assistir.<br />
+            Você entra em um <span className="text-foreground font-medium">ritual de escuta e ação</span>.
+          </p>
+          <p>
+            Todo dia um novo áudio é liberado para você.<br />
+            Cada áudio conduz uma reprogramação prática do seu subconsciente.
+          </p>
+        </div>
 
         <div className="bg-card/50 backdrop-blur-sm border border-accent/30 rounded-xl p-8 space-y-4">
-          <Zap className="w-12 h-12 text-accent mx-auto" />
-          <p className="text-xl font-poppins font-semibold">
-            Sem teoria inútil. Sem motivação vazia.
+          <h3 className="text-xl font-poppins font-semibold">
+            Por que o acesso é um dia por vez?
+          </h3>
+          <p className="text-muted-foreground">
+            Mudança não acontece em maratona.
           </p>
           <p className="text-muted-foreground">
-            Apenas comandos diretos que trabalham onde a mudança realmente acontece.
+            A liberação diária cria <span className="text-foreground font-medium">ritmo, compromisso e transformação real</span>.
+          </p>
+          <p className="text-foreground font-medium">
+            Você não consome. Você atravessa.
           </p>
         </div>
       </div>

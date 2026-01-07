@@ -3,18 +3,22 @@ export const ProblemSection = () => {
     <section className="py-20 px-4">
       <div className="max-w-3xl mx-auto text-center space-y-8 opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.2s' }}>
         <h2 className="font-poppins text-3xl md:text-4xl font-bold">
-          Você sabe que está no <span className="text-primary">automático</span>.
+          A cena que você <span className="text-primary">conhece bem</span>
         </h2>
         
         <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
           <p>
-            Os mesmos pensamentos. Os mesmos padrões. As mesmas reações.
+            Você acorda decidido a mudar.
           </p>
           <p>
-            Você já tentou mudar. Fez promessas no Ano Novo. Leu livros. Assistiu vídeos motivacionais.
+            Mas o dia passa rápido demais.<br />
+            À noite você está exausto, com aquela sensação estranha de que não viveu nada de verdade.
+          </p>
+          <p>
+            Você já prometeu que amanhã vai ser diferente mais vezes do que consegue lembrar.
           </p>
           <p className="text-foreground font-medium">
-            Mas algo dentro de você sempre puxa de volta para o mesmo lugar.
+            E, mesmo assim, continua preso no mesmo ciclo.
           </p>
         </div>
 

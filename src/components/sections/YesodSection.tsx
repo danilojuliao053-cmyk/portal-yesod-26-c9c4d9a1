@@ -1,12 +1,14 @@
 import { useEffect, useRef } from 'react';
-import treeOfLifeYesod from '@/assets/tree-of-life-yesod.png';
+
 export const YesodSection = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+    
     function setCanvasSize() {
       const dpr = Math.max(1, window.devicePixelRatio || 1);
       const rect = canvas!.getBoundingClientRect();
@@ -18,23 +20,17 @@ export const YesodSection = () => {
         h: rect.height
       };
     }
+    
     function draw() {
-      const {
-        w: W,
-        h: H
-      } = setCanvasSize();
-      const pad = {
-        l: 70,
-        r: 30,
-        t: 22,
-        b: 56
-      };
+      const { w: W, h: H } = setCanvasSize();
+      const pad = { l: 70, r: 30, t: 22, b: 56 };
       const plot = {
         x: pad.l,
         y: pad.t,
         w: W - pad.l - pad.r,
         h: H - pad.t - pad.b
       };
+      
       ctx!.clearRect(0, 0, W, H);
       ctx!.fillStyle = "rgba(0,0,0,0)";
       ctx!.fillRect(0, 0, W, H);
@@ -101,11 +97,7 @@ export const YesodSection = () => {
       ctx!.stroke();
 
       // curve points (sigmoid)
-      const pts: {
-        x: number;
-        y: number;
-        t: number;
-      }[] = [];
+      const pts: { x: number; y: number; t: number }[] = [];
       const N = 30;
       for (let i = 0; i <= N; i++) {
         const t = i / N;
@@ -113,11 +105,7 @@ export const YesodSection = () => {
         const s = 1 / (1 + Math.exp(-k * (t - 0.45)));
         const x = plot.x + plot.w * (0.02 + 0.92 * t);
         const y = plot.y + plot.h - plot.h * (0.06 + 0.78 * s);
-        pts.push({
-          x,
-          y,
-          t
-        });
+        pts.push({ x, y, t });
       }
 
       // gradient
@@ -151,13 +139,10 @@ export const YesodSection = () => {
       ctx!.strokeStyle = "rgba(11,11,18,0.55)";
       ctx!.lineWidth = 3;
       for (let i = 2; i < pts.length; i += 2) {
-        const p = pts[i],
-          p2 = pts[i - 1];
-        const dx = p.x - p2.x,
-          dy = p.y - p2.y;
+        const p = pts[i], p2 = pts[i - 1];
+        const dx = p.x - p2.x, dy = p.y - p2.y;
         const len = Math.hypot(dx, dy) || 1;
-        const nx = -dy / len,
-          ny = dx / len;
+        const nx = -dy / len, ny = dx / len;
         ctx!.beginPath();
         ctx!.moveTo(p.x - nx * 10, p.y - ny * 10);
         ctx!.lineTo(p.x + nx * 10, p.y + ny * 10);
@@ -188,7 +173,7 @@ export const YesodSection = () => {
       ctx!.fillText("Força do Subconsciente", labelX, plot.y + plot.h * 0.16);
       ctx!.fillStyle = "rgba(185,185,201,0.75)";
       ctx!.font = `800 ${isMobile ? 11 : 13}px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial`;
-      ctx!.fillText("11M+ bits/s", labelX, plot.y + plot.h * 0.22);
+      ctx!.fillText("Milhões bits/s", labelX, plot.y + plot.h * 0.22);
       ctx!.fillStyle = "rgba(255,255,255,0.90)";
       ctx!.font = `900 ${isMobile ? 12 : 14}px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial`;
       ctx!.fillText("Consciente", conLabelX, conY - 12);
@@ -196,87 +181,68 @@ export const YesodSection = () => {
       ctx!.font = `800 ${isMobile ? 10 : 12}px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial`;
       ctx!.fillText("50 bits/s", conLabelX, conY + 8);
     }
+    
     draw();
     let raf: number | null = null;
     const handleResize = () => {
       if (raf) cancelAnimationFrame(raf);
       raf = requestAnimationFrame(draw);
     };
-    window.addEventListener("resize", handleResize, {
-      passive: true
-    });
+    window.addEventListener("resize", handleResize, { passive: true });
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  return <section className="py-20 px-4 gradient-mystic">
+  
+  return (
+    <section className="py-20 px-4 gradient-mystic">
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Header */}
-        <div className="text-center space-y-6 opacity-0 animate-fade-in-scale" style={{
-        animationDelay: '0.3s'
-      }}>
+        <div className="text-center space-y-6 opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.3s' }}>
           <h2 className="font-poppins text-3xl md:text-4xl font-bold">
             O que é <span className="text-accent text-glow-gold">Yesod</span>?
           </h2>
           
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Na Cabala, Yesod é a <span className="text-foreground">fundação</span>, a esfera que conecta o mundo material ao espiritual.
-            É onde residem seus padrões mais profundos.
-          </p>
-          
-          <div className="flex justify-center mt-8">
-            
+          <div className="text-lg text-muted-foreground max-w-2xl mx-auto space-y-4">
+            <p>
+              Na Cabala, Yesod é a <span className="text-foreground font-medium">fundação</span>.<br />
+              É a camada invisível que conecta o que você sente com o que você faz.
+            </p>
+            <p>
+              É onde seus hábitos nascem antes mesmo da sua consciência perceber.
+            </p>
           </div>
         </div>
 
         {/* Metrics Grid */}
-        <div className="grid md:grid-cols-2 gap-4 opacity-0 animate-fade-in-scale" style={{
-        animationDelay: '0.4s'
-      }}>
+        <div className="grid md:grid-cols-2 gap-4 opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.4s' }}>
           <div className="rounded-2xl p-4 bg-background/55 border border-white/[0.08] backdrop-blur-md">
-            <p className="font-black text-[clamp(34px,4vw,56px)] leading-none mb-2 text-primary" style={{
-            textShadow: '0 0 28px rgba(123,77,255,.25)'
-          }}>
+            <p className="font-black text-[clamp(34px,4vw,56px)] leading-none mb-2 text-primary" style={{ textShadow: '0 0 28px rgba(123,77,255,.25)' }}>
               50
             </p>
             <p className="text-sm text-muted-foreground leading-snug">
-              bits processados por segundo pela <span className="text-foreground font-medium">mente consciente</span>
+              bits por segundo processados pela <span className="text-foreground font-medium">mente consciente</span>
             </p>
           </div>
           
           <div className="rounded-2xl p-4 bg-background/55 border border-white/[0.08] backdrop-blur-md">
-            <p className="font-black text-[clamp(34px,4vw,56px)] leading-none mb-2 text-accent" style={{
-            textShadow: '0 0 28px rgba(230,198,107,.18)'
-          }}>
-              11M+
+            <p className="font-black text-[clamp(34px,4vw,56px)] leading-none mb-2 text-accent" style={{ textShadow: '0 0 28px rgba(230,198,107,.18)' }}>
+              Milhões
             </p>
             <p className="text-sm text-muted-foreground leading-snug">
-              bits processados pelo <span className="text-foreground font-medium">subconsciente</span>
+              bits por segundo processados pelo <span className="text-foreground font-medium">subconsciente</span>
             </p>
           </div>
         </div>
 
-        {/* Chart Title */}
-        <h3 className="text-center font-extrabold text-[clamp(16px,2vw,22px)] text-foreground/95 opacity-0 animate-fade-in-scale" style={{
-        animationDelay: '0.5s'
-      }}>
-          119% Aumento de foco
-        </h3>
+        {/* Footer Text */}
+        <p className="text-center text-lg text-muted-foreground opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.5s' }}>
+          Por isso você tenta mudar usando <span className="text-foreground font-medium">menos de 1% da sua capacidade real</span>.
+        </p>
 
         {/* Canvas Chart */}
-        <div className="opacity-0 animate-fade-in-scale" style={{
-        animationDelay: '0.55s'
-      }}>
+        <div className="opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.55s' }}>
           <canvas ref={canvasRef} className="w-full h-[360px] block rounded-2xl bg-black/[0.08]" />
         </div>
-
-        {/* Chart Notes */}
-        
-
-        {/* Footer Text */}
-        <p className="text-center text-sm text-muted-foreground opacity-0 animate-fade-in-scale" style={{
-        animationDelay: '0.65s'
-      }}>
-          Seu subconsciente é <span className="text-foreground font-medium">220.000x mais poderoso</span>. É lá que a verdadeira mudança acontece.
-        </p>
       </div>
-    </section>;
+    </section>
+  );
 };

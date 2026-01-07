@@ -9,13 +9,18 @@ export const FinalCTASection = () => {
   return (
     <section className="py-20 px-4">
       <div className="max-w-3xl mx-auto text-center space-y-8 opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.2s' }}>
-        <h2 className="font-poppins text-3xl md:text-4xl font-bold">
-          O portal está <span className="text-primary text-glow">aberto</span>.
-        </h2>
-        
-        <p className="text-xl text-muted-foreground">
-          A escolha de atravessar é sua.
-        </p>
+        <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+          <p className="text-foreground font-medium text-xl">
+            Você não nasceu para viver no automático.
+          </p>
+          <p>
+            2026 não é apenas um dia no calendário.<br />
+            É um ano inteiro aberto para reescrever sua identidade.
+          </p>
+          <p className="text-foreground font-medium">
+            A jornada começa quando você decide atravessar.
+          </p>
+        </div>
 
         <Button 
           onClick={scrollToOffer}

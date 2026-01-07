@@ -8,15 +8,15 @@ export const GuaranteeSection = () => {
           <ShieldCheck className="w-16 h-16 text-accent mx-auto" />
           
           <h2 className="font-poppins text-2xl md:text-3xl font-bold">
-            Garantia de <span className="text-accent">7 Dias</span>
+            <span className="text-accent">Garantia</span>
           </h2>
           
-          <p className="text-muted-foreground">
-            Se nos primeiros 7 dias você sentir que o Portal Yesod não é para você, basta enviar um email que devolvemos <span className="text-foreground font-medium">100% do seu investimento</span>. Sem perguntas, sem burocracia.
+          <p className="text-muted-foreground text-lg">
+            Você tem <span className="text-foreground font-medium">7 dias para experimentar sem risco</span>.
           </p>
 
-          <p className="text-sm text-muted-foreground">
-            O risco é todo nosso. A transformação é toda sua.
+          <p className="text-muted-foreground">
+            Se não sentir que isso é para você, devolvemos <span className="text-foreground font-medium">100% do valor</span>.
           </p>
         </div>
       </div>
