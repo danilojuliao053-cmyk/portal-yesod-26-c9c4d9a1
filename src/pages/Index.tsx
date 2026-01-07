@@ -2,12 +2,14 @@ import { MysticBackground } from '@/components/MysticBackground';
 import { StickyCTA } from '@/components/StickyCTA';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { ProblemSection } from '@/components/sections/ProblemSection';
+import { BlockingSection } from '@/components/sections/BlockingSection';
 import { YesodSection } from '@/components/sections/YesodSection';
+import { ConsequenceSection } from '@/components/sections/ConsequenceSection';
 import { WhyNowSection } from '@/components/sections/WhyNowSection';
 import { WhatIsSection } from '@/components/sections/WhatIsSection';
 import { JourneySection } from '@/components/sections/JourneySection';
-import { SocialProofSection } from '@/components/sections/SocialProofSection';
 import { CreatorSection } from '@/components/sections/CreatorSection';
+import { ResultsSection } from '@/components/sections/ResultsSection';
 import { OfferSection } from '@/components/sections/OfferSection';
 import { GuaranteeSection } from '@/components/sections/GuaranteeSection';
 import { FAQSection } from '@/components/sections/FAQSection';
@@ -21,12 +23,14 @@ const Index = () => {
       <main className="relative z-10">
         <HeroSection />
         <ProblemSection />
+        <BlockingSection />
         <YesodSection />
+        <ConsequenceSection />
         <WhyNowSection />
         <WhatIsSection />
         <JourneySection />
-        <SocialProofSection />
         <CreatorSection />
+        <ResultsSection />
         <OfferSection />
         <GuaranteeSection />
         <FAQSection />
