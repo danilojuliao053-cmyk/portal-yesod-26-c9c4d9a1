@@ -28,6 +28,9 @@ export const OfferSection = () => {
         }}
       >
         <div className="text-center mb-10">
+          <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold uppercase tracking-wider text-accent bg-accent/10 border border-accent/30 rounded-full animate-pulse">
+            ✨ Oferta Especial
+          </span>
           <h2 className="font-poppins text-2xl md:text-3xl font-bold text-glow bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">
             O que você vai receber
           </h2>
@@ -37,8 +40,12 @@ export const OfferSection = () => {
         </div>
 
         <ul className="space-y-4 mb-10">
-          {benefits.map((benefit) => (
-            <li key={benefit} className="flex items-start gap-3 text-foreground/90">
+          {benefits.map((benefit, index) => (
+            <li 
+              key={benefit} 
+              className="flex items-start gap-3 text-foreground/90 opacity-0 animate-fade-in"
+              style={{ animationDelay: `${0.3 + index * 0.1}s`, animationFillMode: 'forwards' }}
+            >
               <Check className="w-5 h-5 text-accent shrink-0 mt-0.5 font-bold" />
               <span className="text-base leading-relaxed">{benefit}</span>
             </li>
