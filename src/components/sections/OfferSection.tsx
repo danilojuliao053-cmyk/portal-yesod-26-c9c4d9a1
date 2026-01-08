@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { Check, Sparkles, ShieldCheck, Lock, CreditCard } from 'lucide-react';
+import { Check, Sparkles, ShieldCheck, Clock, Users, CreditCard } from 'lucide-react';
 import { useElementParallax } from '@/hooks/use-parallax';
 
 const benefits = [
@@ -21,69 +21,94 @@ export const OfferSection = () => {
   return (
     <section ref={sectionRef} id="offer" className="py-16 px-4 bg-background">
       <div 
-        className="max-w-3xl mx-auto opacity-0 animate-fade-in-scale transition-transform duration-100 ease-out" 
+        className="max-w-2xl mx-auto opacity-0 animate-fade-in-scale transition-transform duration-100 ease-out" 
         style={{
           animationDelay: '0.2s',
           transform: `translateY(${parallax}px)`
         }}
       >
-        <div className="text-center mb-10">
-          <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold uppercase tracking-wider text-accent bg-accent/10 border border-accent/30 rounded-full animate-pulse">
-            ✨ Oferta Especial
-          </span>
-          <h2 className="font-poppins text-2xl md:text-3xl font-bold text-glow bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">
+        {/* Card Container */}
+        <div className="bg-card border border-accent/20 rounded-2xl p-8 md:p-10 shadow-[0_0_60px_-10px_hsl(var(--accent)/0.15)]">
+          {/* Badge */}
+          <div className="text-center mb-8">
+            <span className="inline-flex items-center gap-2 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-accent bg-accent/10 border border-accent/30 rounded-full">
+              <Sparkles className="w-4 h-4" />
+              Oferta Especial
+            </span>
+          </div>
+
+          {/* Title */}
+          <h2 className="font-poppins text-2xl md:text-3xl font-bold text-center mb-3 bg-gradient-to-r from-accent via-yellow-300 to-accent bg-clip-text text-transparent italic">
             O que você vai receber
           </h2>
-          <p className="text-muted-foreground mt-3 text-sm md:text-base max-w-xl mx-auto">
+          <p className="text-muted-foreground text-center text-sm md:text-base max-w-lg mx-auto mb-8">
             Tudo o que você precisa para reprogramar sua mente e sair do ciclo de autossabotagem
+          </p>
+
+          {/* Benefits List */}
+          <ul className="space-y-4 mb-10">
+            {benefits.map((benefit, index) => (
+              <li 
+                key={benefit} 
+                className="flex items-start gap-3 text-foreground/90 opacity-0 animate-fade-in"
+                style={{ animationDelay: `${0.3 + index * 0.1}s`, animationFillMode: 'forwards' }}
+              >
+                <Check className="w-5 h-5 text-accent shrink-0 mt-0.5 stroke-[3]" />
+                <span className="text-sm md:text-base leading-relaxed">{benefit}</span>
+              </li>
+            ))}
+          </ul>
+
+          {/* Divider */}
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent mb-8" />
+
+          {/* Price Section */}
+          <div className="text-center mb-6">
+            <p className="text-muted-foreground text-sm line-through mb-2">De R$ 97,00</p>
+            <div className="flex items-baseline justify-center gap-3">
+              <span className="text-muted-foreground text-base">por apenas</span>
+              <p className="text-5xl md:text-6xl font-black text-accent text-glow-gold animate-pulse-glow">
+                R$ 37
+              </p>
+            </div>
+            <div className="mt-3">
+              <span className="inline-block px-4 py-1.5 text-xs font-bold bg-accent/20 text-accent border border-accent/40 rounded-full">
+                62% OFF — Economize R$ 60
+              </span>
+            </div>
+          </div>
+
+          {/* CTA Button */}
+          <Button 
+            size="lg" 
+            className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-poppins font-bold text-base md:text-lg py-6 md:py-7 rounded-xl shadow-[0_0_30px_-5px_hsl(var(--accent)/0.4)] hover:shadow-[0_0_40px_-5px_hsl(var(--accent)/0.6)] transition-all duration-300"
+          >
+            <Sparkles className="w-5 h-5 mr-2" />
+            ATIVAR PORTAL YESOD AGORA
+          </Button>
+
+          {/* Access Text */}
+          <p className="text-center text-muted-foreground text-xs mt-4">
+            Acesso imediato ao primeiro áudio após a confirmação
           </p>
         </div>
 
-        <ul className="space-y-4 mb-10">
-          {benefits.map((benefit, index) => (
-            <li 
-              key={benefit} 
-              className="flex items-start gap-3 text-foreground/90 opacity-0 animate-fade-in"
-              style={{ animationDelay: `${0.3 + index * 0.1}s`, animationFillMode: 'forwards' }}
-            >
-              <Check className="w-5 h-5 text-accent shrink-0 mt-0.5 font-bold" />
-              <span className="text-base leading-relaxed">{benefit}</span>
-            </li>
-          ))}
-        </ul>
-
-        <div className="text-center space-y-2">
-          <p className="text-muted-foreground text-sm line-through">De R$ 97,00</p>
-          <div className="flex items-center justify-center gap-2">
-            <span className="text-muted-foreground text-lg">por apenas</span>
-            <p className="text-5xl font-black text-accent text-glow-gold animate-pulse-glow">
-              R$ 37,00
-            </p>
-          </div>
-          <p className="text-green-500 text-sm font-semibold">Economize 62%!</p>
-        </div>
-
-        <div className="mt-8">
-          <Button 
-            size="lg" 
-            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-poppins font-semibold text-sm md:text-lg px-4 md:px-6 py-5 md:py-6 box-glow"
-          >
-            <Sparkles className="w-4 h-4 md:w-5 md:h-5 mr-2 shrink-0" />
-            <span className="whitespace-nowrap">ATIVAR PORTAL YESOD AGORA</span>
-          </Button>
-        </div>
-
-        <div className="mt-6 flex items-center justify-center gap-6 text-muted-foreground">
+        {/* Trust Badges - Outside Card */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 md:gap-8 text-muted-foreground">
           <div className="flex items-center gap-2 text-xs">
-            <ShieldCheck className="w-4 h-4 text-green-500" />
+            <Clock className="w-4 h-4 text-accent/70" />
+            <span>Garantia 7 dias</span>
+          </div>
+          <div className="flex items-center gap-2 text-xs">
+            <ShieldCheck className="w-4 h-4 text-accent/70" />
             <span>Compra Segura</span>
           </div>
           <div className="flex items-center gap-2 text-xs">
-            <Lock className="w-4 h-4 text-green-500" />
-            <span>Dados Protegidos</span>
+            <Users className="w-4 h-4 text-accent/70" />
+            <span>+847 Alunos</span>
           </div>
           <div className="flex items-center gap-2 text-xs">
-            <CreditCard className="w-4 h-4 text-green-500" />
+            <CreditCard className="w-4 h-4 text-accent/70" />
             <span>Pagamento Seguro</span>
           </div>
         </div>
