@@ -75,6 +75,39 @@ export const WhatIsSection = () => {
           </div>
         </div>
 
+        {/* O que você NÃO precisa mais fazer */}
+        <div className="bg-gradient-to-b from-card/90 to-background border border-white/10 rounded-2xl p-8 shadow-2xl">
+          <h3 className="text-foreground text-xl md:text-2xl font-poppins font-black text-center mb-6">
+            O que você NÃO precisa mais fazer
+          </h3>
+          <ul className="space-y-4 max-w-xl mx-auto">
+            <li className="text-foreground/90 text-base pl-7 relative">
+              <span className="absolute left-0 top-0 text-red-400 font-black">✘</span>
+              Acreditar que força de vontade resolve tudo
+            </li>
+            <li className="text-foreground/90 text-base pl-7 relative">
+              <span className="absolute left-0 top-0 text-red-400 font-black">✘</span>
+              Consumir conteúdo e não executar nada
+            </li>
+            <li className="text-foreground/90 text-base pl-7 relative">
+              <span className="absolute left-0 top-0 text-red-400 font-black">✘</span>
+              Pular de método em método sem resultado
+            </li>
+            <li className="text-foreground/90 text-base pl-7 relative">
+              <span className="absolute left-0 top-0 text-red-400 font-black">✘</span>
+              Comprar cursos e abandonar na primeira semana
+            </li>
+            <li className="text-foreground/90 text-base pl-7 relative">
+              <span className="absolute left-0 top-0 text-red-400 font-black">✘</span>
+              Repetir promessas que você não consegue cumprir
+            </li>
+          </ul>
+          <p className="mt-7 text-center text-muted-foreground text-sm leading-relaxed">
+            O Portal Yesod 26 não funciona com motivação.<br />
+            Ele cria novos padrões internos.
+          </p>
+        </div>
+
         {/* Por que o acesso é um dia por vez */}
         <div className="bg-card/50 backdrop-blur-sm border border-accent/30 rounded-xl p-8 space-y-4">
           <h3 className="text-xl font-poppins font-semibold">
