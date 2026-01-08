@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { useElementParallax } from '@/hooks/use-parallax';
+import { Headphones, Brain, Rocket } from 'lucide-react';
 
 export const WhatIsSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -37,8 +38,10 @@ export const WhatIsSection = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Passo 1 */}
-            <div className="bg-gradient-to-b from-card/90 to-background border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-accent/25 hover:-translate-y-1 transition-all duration-300">
-              <div className="text-4xl mb-3">🎧</div>
+            <div className="group bg-gradient-to-b from-card/90 to-background border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-accent/25 hover:-translate-y-1 transition-all duration-300">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-colors duration-300">
+                <Headphones className="w-8 h-8 text-accent group-hover:scale-110 group-hover:animate-pulse transition-transform duration-300" />
+              </div>
               <h4 className="text-accent font-poppins font-semibold text-lg mb-3">Passo #01</h4>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Após a compra, você recebe o acesso ao primeiro áudio.
@@ -47,8 +50,10 @@ export const WhatIsSection = () => {
             </div>
             
             {/* Passo 2 */}
-            <div className="bg-gradient-to-b from-card/90 to-background border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-accent/25 hover:-translate-y-1 transition-all duration-300">
-              <div className="text-4xl mb-3">🧠</div>
+            <div className="group bg-gradient-to-b from-card/90 to-background border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-accent/25 hover:-translate-y-1 transition-all duration-300">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-colors duration-300">
+                <Brain className="w-8 h-8 text-accent group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />
+              </div>
               <h4 className="text-accent font-poppins font-semibold text-lg mb-3">Passo #02</h4>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Escute o áudio uma vez ao acordar ou antes de dormir.
@@ -57,8 +62,10 @@ export const WhatIsSection = () => {
             </div>
             
             {/* Passo 3 */}
-            <div className="bg-gradient-to-b from-card/90 to-background border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-accent/25 hover:-translate-y-1 transition-all duration-300">
-              <div className="text-4xl mb-3">🚀</div>
+            <div className="group bg-gradient-to-b from-card/90 to-background border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-accent/25 hover:-translate-y-1 transition-all duration-300">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-colors duration-300">
+                <Rocket className="w-8 h-8 text-accent group-hover:scale-110 group-hover:-translate-y-1 transition-transform duration-300" />
+              </div>
               <h4 className="text-accent font-poppins font-semibold text-lg mb-3">Passo #03</h4>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Em poucos dias você começa a perceber mudanças
