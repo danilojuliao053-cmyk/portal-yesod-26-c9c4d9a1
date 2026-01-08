@@ -27,9 +27,14 @@ export const OfferSection = () => {
           transform: `translateY(${parallax}px)`
         }}
       >
-        <h2 className="font-poppins text-2xl md:text-3xl font-bold text-center mb-8">
-          O que você vai receber
-        </h2>
+        <div className="text-center mb-10">
+          <h2 className="font-poppins text-2xl md:text-3xl font-bold text-glow bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">
+            O que você vai receber
+          </h2>
+          <p className="text-muted-foreground mt-3 text-sm md:text-base max-w-xl mx-auto">
+            Tudo o que você precisa para reprogramar sua mente e sair do ciclo de autossabotagem
+          </p>
+        </div>
 
         <ul className="space-y-4 mb-10">
           {benefits.map((benefit) => (
