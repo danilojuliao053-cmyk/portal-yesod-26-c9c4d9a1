@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { Check, Sparkles } from 'lucide-react';
+import { Check, Sparkles, ShieldCheck, Lock, CreditCard } from 'lucide-react';
 import { useElementParallax } from '@/hooks/use-parallax';
 
 const benefits = [
@@ -53,10 +53,14 @@ export const OfferSection = () => {
         </ul>
 
         <div className="text-center space-y-2">
-          <p className="text-muted-foreground text-sm">por apenas</p>
-          <p className="text-5xl font-black text-accent text-glow-gold animate-pulse-glow">
-            R$ 37,00
-          </p>
+          <p className="text-muted-foreground text-sm line-through">De R$ 97,00</p>
+          <div className="flex items-center justify-center gap-2">
+            <span className="text-muted-foreground text-lg">por apenas</span>
+            <p className="text-5xl font-black text-accent text-glow-gold animate-pulse-glow">
+              R$ 37,00
+            </p>
+          </div>
+          <p className="text-green-500 text-sm font-semibold">Economize 62%!</p>
         </div>
 
         <div className="mt-8">
@@ -67,6 +71,21 @@ export const OfferSection = () => {
             <Sparkles className="w-4 h-4 md:w-5 md:h-5 mr-2 shrink-0" />
             <span className="whitespace-nowrap">ATIVAR PORTAL YESOD AGORA</span>
           </Button>
+        </div>
+
+        <div className="mt-6 flex items-center justify-center gap-6 text-muted-foreground">
+          <div className="flex items-center gap-2 text-xs">
+            <ShieldCheck className="w-4 h-4 text-green-500" />
+            <span>Compra Segura</span>
+          </div>
+          <div className="flex items-center gap-2 text-xs">
+            <Lock className="w-4 h-4 text-green-500" />
+            <span>Dados Protegidos</span>
+          </div>
+          <div className="flex items-center gap-2 text-xs">
+            <CreditCard className="w-4 h-4 text-green-500" />
+            <span>Pagamento Seguro</span>
+          </div>
         </div>
       </div>
     </section>
