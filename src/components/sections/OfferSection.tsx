@@ -27,6 +27,10 @@ export const OfferSection = () => {
           transform: `translateY(${parallax}px)`
         }}
       >
+        <h2 className="font-poppins text-2xl md:text-3xl font-bold text-center mb-8">
+          O que você vai receber
+        </h2>
+
         <ul className="space-y-4 mb-10">
           {benefits.map((benefit) => (
             <li key={benefit} className="flex items-start gap-3 text-foreground/90">
