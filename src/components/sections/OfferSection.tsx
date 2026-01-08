@@ -54,7 +54,9 @@ export const OfferSection = () => {
 
         <div className="text-center space-y-2">
           <p className="text-muted-foreground text-sm">por apenas</p>
-          <p className="text-5xl font-black text-foreground">R$ 37,00</p>
+          <p className="text-5xl font-black text-accent text-glow-gold animate-pulse-glow">
+            R$ 37,00
+          </p>
         </div>
 
         <div className="mt-8">
