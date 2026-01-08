@@ -81,30 +81,54 @@ export const WhatIsSection = () => {
             O que você NÃO precisa mais fazer
           </h3>
           <ul className="space-y-4 max-w-xl mx-auto">
-            <li className="text-foreground/90 text-base pl-7 relative">
-              <span className="absolute left-0 top-0 text-red-400 font-black">✘</span>
-              Acreditar que força de vontade resolve tudo
-            </li>
-            <li className="text-foreground/90 text-base pl-7 relative">
-              <span className="absolute left-0 top-0 text-red-400 font-black">✘</span>
-              Consumir conteúdo e não executar nada
-            </li>
-            <li className="text-foreground/90 text-base pl-7 relative">
-              <span className="absolute left-0 top-0 text-red-400 font-black">✘</span>
-              Pular de método em método sem resultado
-            </li>
-            <li className="text-foreground/90 text-base pl-7 relative">
-              <span className="absolute left-0 top-0 text-red-400 font-black">✘</span>
-              Comprar cursos e abandonar na primeira semana
-            </li>
-            <li className="text-foreground/90 text-base pl-7 relative">
-              <span className="absolute left-0 top-0 text-red-400 font-black">✘</span>
-              Repetir promessas que você não consegue cumprir
-            </li>
+            {[
+              "Acreditar que força de vontade resolve tudo",
+              "Consumir conteúdo e não executar nada",
+              "Pular de método em método sem resultado",
+              "Comprar cursos e abandonar na primeira semana",
+              "Repetir promessas que você não consegue cumprir"
+            ].map((item, index) => (
+              <li 
+                key={index}
+                className="text-foreground/90 text-base pl-7 relative opacity-0 animate-fade-in"
+                style={{ animationDelay: `${index * 0.15}s`, animationFillMode: 'forwards' }}
+              >
+                <span className="absolute left-0 top-0 text-red-400 font-black">✘</span>
+                {item}
+              </li>
+            ))}
           </ul>
-          <p className="mt-7 text-center text-muted-foreground text-sm leading-relaxed">
+          <p className="mt-7 text-center text-muted-foreground text-sm leading-relaxed opacity-0 animate-fade-in" style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}>
             O Portal Yesod 26 não funciona com motivação.<br />
             Ele cria novos padrões internos.
+          </p>
+        </div>
+
+        {/* O que você VAI conquistar */}
+        <div className="bg-gradient-to-b from-card/90 to-background border border-accent/30 rounded-2xl p-8 shadow-2xl">
+          <h3 className="text-foreground text-xl md:text-2xl font-poppins font-black text-center mb-6">
+            O que você <span className="text-accent">VAI</span> conquistar
+          </h3>
+          <ul className="space-y-4 max-w-xl mx-auto">
+            {[
+              "Clareza sobre o que realmente importa para você",
+              "Decisões firmes sem paralisia ou arrependimento",
+              "Consistência natural nas suas ações diárias",
+              "Confiança para começar e terminar o que propõe",
+              "Padrões internos que sustentam sua transformação"
+            ].map((item, index) => (
+              <li 
+                key={index}
+                className="text-foreground/90 text-base pl-7 relative opacity-0 animate-fade-in"
+                style={{ animationDelay: `${index * 0.15}s`, animationFillMode: 'forwards' }}
+              >
+                <span className="absolute left-0 top-0 text-green-400 font-black">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-7 text-center text-accent font-medium text-sm opacity-0 animate-fade-in" style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}>
+            Mudança real começa por dentro.
           </p>
         </div>
 
