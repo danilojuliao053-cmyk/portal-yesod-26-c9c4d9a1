@@ -1,7 +1,28 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const YesodSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  // Intersection Observer for scroll animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -193,10 +214,14 @@ export const YesodSection = () => {
   }, []);
   
   return (
-    <section className="py-20 px-4 gradient-mystic">
-      <div className="max-w-4xl mx-auto space-y-8">
+    <section ref={sectionRef} className="py-20 px-4 gradient-mystic">
+      <div 
+        className={`max-w-4xl mx-auto space-y-8 transition-all duration-700 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+        }`}
+      >
         {/* Header */}
-        <div className="text-center space-y-6 opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.3s' }}>
+        <div className="text-center space-y-6">
           <h2 className="font-poppins text-3xl md:text-4xl font-bold">
             O que é <span className="text-accent text-glow-gold">Yesod</span>?
           </h2>
@@ -213,7 +238,7 @@ export const YesodSection = () => {
         </div>
 
         {/* Metrics Grid */}
-        <div className="grid md:grid-cols-2 gap-4 opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.4s' }}>
+        <div className="grid md:grid-cols-2 gap-4">
           <div className="rounded-2xl p-4 bg-background/55 border border-white/[0.08] backdrop-blur-md">
             <p className="font-black text-[clamp(34px,4vw,56px)] leading-none mb-2 text-primary" style={{ textShadow: '0 0 28px rgba(123,77,255,.25)' }}>
               50
@@ -234,12 +259,12 @@ export const YesodSection = () => {
         </div>
 
         {/* Footer Text */}
-        <p className="text-center text-lg text-muted-foreground opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.5s' }}>
+        <p className="text-center text-lg text-muted-foreground">
           Por isso você tenta mudar usando <span className="text-foreground font-medium">menos de 1% da sua capacidade real</span>.
         </p>
 
         {/* Canvas Chart */}
-        <div className="opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.55s' }}>
+        <div>
           <canvas ref={canvasRef} className="w-full h-[360px] block rounded-2xl bg-black/[0.08]" />
         </div>
       </div>

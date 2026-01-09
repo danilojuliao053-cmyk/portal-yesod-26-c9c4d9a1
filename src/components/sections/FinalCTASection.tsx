@@ -1,14 +1,21 @@
 import { Button } from '@/components/ui/button';
 import { Sparkles } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 export const FinalCTASection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   const scrollToOffer = () => {
     document.getElementById('offer')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section className="py-20 px-4">
-      <div className="max-w-3xl mx-auto text-center space-y-8 opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.2s' }}>
+    <section ref={ref} className="py-20 px-4">
+      <div 
+        className={`max-w-3xl mx-auto text-center space-y-8 transition-all duration-700 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+        }`}
+      >
         <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
           <p className="text-foreground font-medium text-xl">
             Você não nasceu para viver no automático.

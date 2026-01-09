@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Sunrise, Trash2, UserCheck, Target } from 'lucide-react';
 import { useElementParallax } from '@/hooks/use-parallax';
 
@@ -36,13 +36,37 @@ const weeks = [
 export const JourneySection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const parallax = useElementParallax(sectionRef, 0.12);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Intersection Observer for scroll animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section ref={sectionRef} className="py-20 px-4">
-      <div className="max-w-5xl mx-auto space-y-12">
+      <div 
+        className={`max-w-5xl mx-auto space-y-12 transition-all duration-700 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+        }`}
+      >
         <div 
-          className="text-center space-y-4 opacity-0 animate-fade-in-scale transition-transform duration-100 ease-out" 
-          style={{ animationDelay: '0.2s', transform: `translateY(${parallax}px)` }}
+          className="text-center space-y-4 transition-transform duration-100 ease-out" 
+          style={{ transform: `translateY(${parallax}px)` }}
         >
           <h2 className="font-poppins text-3xl md:text-4xl font-bold">
             A <span className="text-primary">Jornada</span>
@@ -54,8 +78,10 @@ export const JourneySection = () => {
           {weeks.map((week, index) => (
             <div
               key={week.week}
-              className="bg-card/50 backdrop-blur-sm border border-border hover:border-primary/50 rounded-xl p-6 transition-all duration-300 opacity-0 animate-fade-in-scale"
-              style={{ animationDelay: `${0.3 + index * 0.1}s` }}
+              className={`bg-card/50 backdrop-blur-sm border border-border hover:border-primary/50 rounded-xl p-6 transition-all duration-500 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: `${0.1 + index * 0.1}s` }}
             >
               <div className="flex items-start gap-4">
                 <div className={`p-3 rounded-lg bg-secondary ${week.color}`}>
