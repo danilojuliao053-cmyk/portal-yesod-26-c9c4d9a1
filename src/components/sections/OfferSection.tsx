@@ -7,6 +7,26 @@ export const OfferSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const parallax = useElementParallax(sectionRef, 0.1);
   const [viewers, setViewers] = useState(12);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Intersection Observer for scroll animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   // Simulate live viewer count that changes randomly
   useEffect(() => {
@@ -22,10 +42,16 @@ export const OfferSection = () => {
     return () => clearInterval(interval);
   }, []);
   return <section ref={sectionRef} id="offer" className="py-16 px-4 bg-background">
-      <div className="max-w-2xl mx-auto opacity-0 animate-fade-in-scale transition-transform duration-100 ease-out" style={{
-      animationDelay: '0.2s',
-      transform: `translateY(${parallax}px)`
-    }}>
+      <div 
+        className={`max-w-2xl mx-auto transition-all duration-700 ease-out ${
+          isVisible 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-12'
+        }`}
+        style={{
+          transform: isVisible ? `translateY(${parallax}px)` : 'translateY(48px)'
+        }}
+      >
         {/* Card Container */}
         <div className="bg-card border border-accent/20 rounded-2xl p-8 md:p-10 shadow-[0_0_60px_-10px_hsl(var(--accent)/0.15)]">
           {/* Badge */}
