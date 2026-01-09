@@ -2,18 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Check, Sparkles, ShieldCheck, Clock, Users, CreditCard, Eye } from 'lucide-react';
 import { useElementParallax } from '@/hooks/use-parallax';
-
-const benefits = [
-  '26 áudios guiados de reprogramação subconsciente',
-  'Protocolos diários para sair do modo automático',
-  'Áudios para escutar ao acordar ou antes de dormir',
-  'Reprogramação de padrões de procrastinação e autossabotagem',
-  'Clareza mental para tomar decisões sem conflito interno',
-  'Reconstrução de identidade baseada em ação',
-  'Liberação diária automática dos áudios',
-  'Jornada prática, simples e progressiva'
-];
-
+const benefits = ['26 áudios guiados de reprogramação subconsciente', 'Protocolos diários para sair do modo automático', 'Áudios para escutar ao acordar ou antes de dormir', 'Reprogramação de padrões de procrastinação e autossabotagem', 'Clareza mental para tomar decisões sem conflito interno', 'Reconstrução de identidade baseada em ação', 'Liberação diária automática dos áudios', 'Jornada prática, simples e progressiva'];
 export const OfferSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const parallax = useElementParallax(sectionRef, 0.1);
@@ -32,16 +21,11 @@ export const OfferSection = () => {
 
     return () => clearInterval(interval);
   }, []);
-  
-  return (
-    <section ref={sectionRef} id="offer" className="py-16 px-4 bg-background">
-      <div 
-        className="max-w-2xl mx-auto opacity-0 animate-fade-in-scale transition-transform duration-100 ease-out" 
-        style={{
-          animationDelay: '0.2s',
-          transform: `translateY(${parallax}px)`
-        }}
-      >
+  return <section ref={sectionRef} id="offer" className="py-16 px-4 bg-background">
+      <div className="max-w-2xl mx-auto opacity-0 animate-fade-in-scale transition-transform duration-100 ease-out" style={{
+      animationDelay: '0.2s',
+      transform: `translateY(${parallax}px)`
+    }}>
         {/* Card Container */}
         <div className="bg-card border border-accent/20 rounded-2xl p-8 md:p-10 shadow-[0_0_60px_-10px_hsl(var(--accent)/0.15)]">
           {/* Badge */}
@@ -62,16 +46,13 @@ export const OfferSection = () => {
 
           {/* Benefits List */}
           <ul className="space-y-4 mb-10">
-            {benefits.map((benefit, index) => (
-              <li 
-                key={benefit} 
-                className="flex items-start gap-3 text-foreground/90 opacity-0 animate-fade-in"
-                style={{ animationDelay: `${0.3 + index * 0.1}s`, animationFillMode: 'forwards' }}
-              >
+            {benefits.map((benefit, index) => <li key={benefit} className="flex items-start gap-3 text-foreground/90 opacity-0 animate-fade-in" style={{
+            animationDelay: `${0.3 + index * 0.1}s`,
+            animationFillMode: 'forwards'
+          }}>
                 <Check className="w-5 h-5 text-accent shrink-0 mt-0.5 stroke-[3]" />
                 <span className="text-sm md:text-base leading-relaxed">{benefit}</span>
-              </li>
-            ))}
+              </li>)}
           </ul>
 
           {/* Divider */}
@@ -82,9 +63,7 @@ export const OfferSection = () => {
             <p className="text-muted-foreground text-sm line-through mb-2">De R$ 97,00</p>
             <div className="flex items-baseline justify-center gap-3">
               <span className="text-muted-foreground text-base">por apenas</span>
-              <p className="text-5xl md:text-6xl font-black text-accent text-glow-gold animate-pulse-glow">
-                R$ 37
-              </p>
+              <p className="text-5xl md:text-6xl font-black text-accent text-glow-gold animate-pulse-glow">37,00</p>
             </div>
             <div className="mt-3">
               <span className="inline-block px-4 py-1.5 text-xs font-bold bg-accent/20 text-accent border border-accent/40 rounded-full">
@@ -116,10 +95,7 @@ export const OfferSection = () => {
           </div>
 
           {/* CTA Button */}
-          <Button 
-            size="lg" 
-            className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-poppins font-bold text-sm md:text-base py-6 md:py-7 rounded-xl shadow-[0_0_30px_-5px_hsl(var(--accent)/0.4)] hover:shadow-[0_0_40px_-5px_hsl(var(--accent)/0.6)] transition-all duration-300 animate-pulse-cta"
-          >
+          <Button size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-poppins font-bold text-sm md:text-base py-6 md:py-7 rounded-xl shadow-[0_0_30px_-5px_hsl(var(--accent)/0.4)] hover:shadow-[0_0_40px_-5px_hsl(var(--accent)/0.6)] transition-all duration-300 animate-pulse-cta">
             <Sparkles className="w-5 h-5 mr-2 animate-spin-slow" />
             ATIVAR PORTAL YESOD AGORA
           </Button>
@@ -150,6 +126,5 @@ export const OfferSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
