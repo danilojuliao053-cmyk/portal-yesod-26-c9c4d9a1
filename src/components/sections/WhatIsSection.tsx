@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { useElementParallax } from '@/hooks/use-parallax';
+
 import { Headphones, Brain, Rocket, X, Check } from 'lucide-react';
 
 // Floating particle component
@@ -23,7 +24,27 @@ const FloatingParticle = ({ delay, x, size, color }: { delay: number; x: number;
 export const WhatIsSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const parallax = useElementParallax(sectionRef, 0.15);
+  const [isVisible, setIsVisible] = useState(false);
   const [particles, setParticles] = useState<Array<{ id: number; delay: number; x: number; size: number; color: 'red' | 'gold' }>>([]);
+
+  // Intersection Observer for scroll animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const newParticles = Array.from({ length: 16 }, (_, i) => ({
@@ -39,8 +60,10 @@ export const WhatIsSection = () => {
   return (
     <section ref={sectionRef} className="py-20 px-4 gradient-mystic">
       <div 
-        className="max-w-3xl mx-auto text-center space-y-8 opacity-0 animate-fade-in-scale transition-transform duration-100 ease-out" 
-        style={{ animationDelay: '0.2s', transform: `translateY(${parallax}px)` }}
+        className={`max-w-3xl mx-auto text-center space-y-8 transition-all duration-700 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+        }`}
+        style={{ transform: isVisible ? `translateY(${parallax}px)` : 'translateY(48px)' }}
       >
         <h2 className="font-poppins text-3xl md:text-4xl font-bold">
           O que é o <span className="text-accent text-glow-gold">Portal Yesod 26</span>?

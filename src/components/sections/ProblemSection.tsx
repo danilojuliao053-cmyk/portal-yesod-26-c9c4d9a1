@@ -1,7 +1,15 @@
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+
 export const ProblemSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section className="py-20 px-4">
-      <div className="max-w-3xl mx-auto text-center space-y-8 opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.2s' }}>
+    <section ref={ref} className="py-20 px-4">
+      <div 
+        className={`max-w-3xl mx-auto text-center space-y-8 transition-all duration-700 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+        }`}
+      >
         <h2 className="font-poppins text-3xl md:text-4xl font-bold">
           A cena que você <span className="text-primary">conhece bem</span>
         </h2>

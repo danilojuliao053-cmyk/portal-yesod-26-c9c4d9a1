@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 const faqs = [
   {
@@ -37,9 +38,15 @@ const faqs = [
 ];
 
 export const FAQSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section className="py-20 px-4 gradient-mystic">
-      <div className="max-w-2xl mx-auto space-y-8 opacity-0 animate-fade-in-scale" style={{ animationDelay: '0.2s' }}>
+    <section ref={ref} className="py-20 px-4 gradient-mystic">
+      <div 
+        className={`max-w-2xl mx-auto space-y-8 transition-all duration-700 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+        }`}
+      >
         <h2 className="font-poppins text-3xl md:text-4xl font-bold text-center">
           Perguntas <span className="text-primary">Frequentes</span>
         </h2>
