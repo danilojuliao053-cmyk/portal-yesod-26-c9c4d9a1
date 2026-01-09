@@ -1,6 +1,6 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Check, Sparkles, ShieldCheck, Clock, Users, CreditCard } from 'lucide-react';
+import { Check, Sparkles, ShieldCheck, Clock, Users, CreditCard, Eye } from 'lucide-react';
 import { useElementParallax } from '@/hooks/use-parallax';
 
 const benefits = [
@@ -17,6 +17,21 @@ const benefits = [
 export const OfferSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const parallax = useElementParallax(sectionRef, 0.1);
+  const [viewers, setViewers] = useState(12);
+
+  // Simulate live viewer count that changes randomly
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setViewers(prev => {
+        const change = Math.random() > 0.5 ? 1 : -1;
+        const newValue = prev + change;
+        // Keep between 8 and 24
+        return Math.max(8, Math.min(24, newValue));
+      });
+    }, 3000 + Math.random() * 2000); // Random interval between 3-5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
   
   return (
     <section ref={sectionRef} id="offer" className="py-16 px-4 bg-background">
@@ -76,6 +91,20 @@ export const OfferSection = () => {
                 62% OFF — Economize R$ 60
               </span>
             </div>
+          </div>
+
+          {/* Live Viewers Indicator */}
+          <div className="flex justify-center mb-2">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-medium text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 rounded-full">
+              <Eye className="w-3.5 h-3.5" />
+              <span className="flex items-center gap-1.5">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span className="font-bold">{viewers}</span> pessoas vendo agora
+              </span>
+            </span>
           </div>
 
           {/* Urgency Badge */}
