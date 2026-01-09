@@ -97,6 +97,20 @@ export default {
           "0%, 100%": { opacity: "0.4" },
           "50%": { opacity: "0.8" },
         },
+        "pulse-cta": {
+          "0%, 100%": { 
+            transform: "scale(1)",
+            boxShadow: "0 0 30px -5px hsl(var(--accent) / 0.4)"
+          },
+          "50%": { 
+            transform: "scale(1.02)",
+            boxShadow: "0 0 50px -5px hsl(var(--accent) / 0.6)"
+          },
+        },
+        "spin-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
         "particle": {
           "0%": { transform: "translateY(100vh) scale(0)", opacity: "0" },
           "10%": { opacity: "1" },
@@ -123,6 +137,8 @@ export default {
         "float": "float 6s ease-in-out infinite",
         "float-slow": "float-slow 8s ease-in-out infinite",
         "pulse-glow": "pulse-glow 3s ease-in-out infinite",
+        "pulse-cta": "pulse-cta 2s ease-in-out infinite",
+        "spin-slow": "spin-slow 4s linear infinite",
         "particle": "particle 15s linear infinite",
         "slide-up": "slide-up 0.3s ease-out forwards",
         "count-up": "count-up 0.5s ease-out forwards",
