@@ -78,6 +78,14 @@ export const OfferSection = () => {
             </div>
           </div>
 
+          {/* Urgency Badge */}
+          <div className="flex justify-center mb-3">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-red-400 bg-red-500/10 border border-red-500/30 rounded-full animate-pulse">
+              <span className="w-2 h-2 bg-red-500 rounded-full animate-ping" />
+              Oferta por tempo limitado
+            </span>
+          </div>
+
           {/* CTA Button */}
           <Button 
             size="lg" 
