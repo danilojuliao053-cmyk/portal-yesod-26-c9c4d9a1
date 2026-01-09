@@ -11,20 +11,17 @@ export const OfferSection = () => {
 
   // Intersection Observer for scroll animation
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15 }
-    );
-
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        observer.disconnect();
+      }
+    }, {
+      threshold: 0.15
+    });
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
     return () => observer.disconnect();
   }, []);
 
@@ -42,16 +39,9 @@ export const OfferSection = () => {
     return () => clearInterval(interval);
   }, []);
   return <section ref={sectionRef} id="offer" className="py-16 px-4 bg-background">
-      <div 
-        className={`max-w-2xl mx-auto transition-all duration-700 ease-out ${
-          isVisible 
-            ? 'opacity-100 translate-y-0' 
-            : 'opacity-0 translate-y-12'
-        }`}
-        style={{
-          transform: isVisible ? `translateY(${parallax}px)` : 'translateY(48px)'
-        }}
-      >
+      <div className={`max-w-2xl mx-auto transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{
+      transform: isVisible ? `translateY(${parallax}px)` : 'translateY(48px)'
+    }}>
         {/* Card Container */}
         <div className="bg-card border border-accent/20 rounded-2xl p-8 md:p-10 shadow-[0_0_60px_-10px_hsl(var(--accent)/0.15)]">
           {/* Badge */}
@@ -100,16 +90,7 @@ export const OfferSection = () => {
 
           {/* Live Viewers Indicator */}
           <div className="flex justify-center mb-2">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-medium text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 rounded-full">
-              <Eye className="w-3.5 h-3.5" />
-              <span className="flex items-center gap-1.5">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span className="font-bold">{viewers}</span> pessoas vendo agora
-              </span>
-            </span>
+            
           </div>
 
           {/* Urgency Badge */}
