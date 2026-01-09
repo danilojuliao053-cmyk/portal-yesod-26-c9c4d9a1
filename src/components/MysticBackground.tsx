@@ -1,5 +1,83 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useParallax } from '@/hooks/use-parallax';
+
+// Twinkling star component
+const Star = ({ 
+  x, 
+  y, 
+  size, 
+  delay, 
+  duration,
+  color 
+}: { 
+  x: number; 
+  y: number; 
+  size: number; 
+  delay: number;
+  duration: number;
+  color: 'white' | 'gold' | 'purple';
+}) => {
+  const colorMap = {
+    white: 'hsl(0 0% 100%)',
+    gold: 'hsl(var(--accent))',
+    purple: 'hsl(var(--primary))',
+  };
+  
+  return (
+    <div
+      className="absolute rounded-full animate-twinkle"
+      style={{
+        left: `${x}%`,
+        top: `${y}%`,
+        width: `${size}px`,
+        height: `${size}px`,
+        background: colorMap[color],
+        boxShadow: `0 0 ${size * 2}px ${size / 2}px ${colorMap[color]}`,
+        animationDelay: `${delay}s`,
+        animationDuration: `${duration}s`,
+      }}
+    />
+  );
+};
+
+// Shooting star component
+const ShootingStar = ({ delay }: { delay: number }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const startX = useMemo(() => Math.random() * 60 + 10, []);
+  const startY = useMemo(() => Math.random() * 30, []);
+
+  useEffect(() => {
+    const showStar = () => {
+      setIsVisible(true);
+      setTimeout(() => setIsVisible(false), 2000);
+    };
+
+    const initialTimeout = setTimeout(showStar, delay * 1000);
+    const interval = setInterval(showStar, 8000 + Math.random() * 12000);
+
+    return () => {
+      clearTimeout(initialTimeout);
+      clearInterval(interval);
+    };
+  }, [delay]);
+
+  if (!isVisible) return null;
+
+  return (
+    <div
+      className="absolute animate-shooting-star"
+      style={{
+        left: `${startX}%`,
+        top: `${startY}%`,
+        width: '100px',
+        height: '2px',
+        background: 'linear-gradient(to right, hsl(0 0% 100%), transparent)',
+        transform: 'rotate(45deg)',
+        transformOrigin: 'left center',
+      }}
+    />
+  );
+};
 
 const Particle = ({ delay, left, size, speed }: { delay: number; left: number; size: number; speed: number }) => {
   const parallaxOffset = useParallax(speed);
@@ -145,6 +223,52 @@ const NebulaCloud = ({
   );
 };
 
+// Star field layer with parallax
+const StarField = ({ parallaxSpeed }: { parallaxSpeed: number }) => {
+  const parallaxOffset = useParallax(parallaxSpeed);
+  const [stars, setStars] = useState<Array<{
+    id: number;
+    x: number;
+    y: number;
+    size: number;
+    delay: number;
+    duration: number;
+    color: 'white' | 'gold' | 'purple';
+  }>>([]);
+
+  useEffect(() => {
+    const newStars = Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 2 + 1,
+      delay: Math.random() * 5,
+      duration: 2 + Math.random() * 3,
+      color: (Math.random() > 0.85 ? 'gold' : Math.random() > 0.7 ? 'purple' : 'white') as 'white' | 'gold' | 'purple',
+    }));
+    setStars(newStars);
+  }, []);
+
+  return (
+    <div 
+      className="absolute inset-0"
+      style={{ transform: `translateY(${parallaxOffset}px)` }}
+    >
+      {stars.map((star) => (
+        <Star
+          key={star.id}
+          x={star.x}
+          y={star.y}
+          size={star.size}
+          delay={star.delay}
+          duration={star.duration}
+          color={star.color}
+        />
+      ))}
+    </div>
+  );
+};
+
 export const MysticBackground = () => {
   const [particles, setParticles] = useState<Array<{ id: number; delay: number; left: number; size: number; speed: number }>>([]);
   const slowParallax = useParallax(0.08);
@@ -163,6 +287,14 @@ export const MysticBackground = () => {
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      {/* Twinkling stars - background layer */}
+      <StarField parallaxSpeed={0.02} />
+      
+      {/* Shooting stars */}
+      <ShootingStar delay={3} />
+      <ShootingStar delay={8} />
+      <ShootingStar delay={15} />
+
       {/* Deep background layer - slowest parallax */}
       <ParallaxGrid />
       

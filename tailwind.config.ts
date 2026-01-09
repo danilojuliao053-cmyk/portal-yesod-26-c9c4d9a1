@@ -129,6 +129,19 @@ export default {
           "0%": { opacity: "0", transform: "translateY(12px) scale(0.96)" },
           "100%": { opacity: "1", transform: "translateY(0) scale(1)" },
         },
+        "twinkle": {
+          "0%, 100%": { opacity: "0.2", transform: "scale(1)" },
+          "50%": { opacity: "1", transform: "scale(1.2)" },
+        },
+        "twinkle-delayed": {
+          "0%, 20%, 100%": { opacity: "0.1" },
+          "60%": { opacity: "0.9" },
+        },
+        "shooting-star": {
+          "0%": { transform: "translateX(0) translateY(0)", opacity: "1" },
+          "70%": { opacity: "1" },
+          "100%": { transform: "translateX(300px) translateY(300px)", opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -143,6 +156,9 @@ export default {
         "slide-up": "slide-up 0.3s ease-out forwards",
         "count-up": "count-up 0.5s ease-out forwards",
         "fade-in-scale": "fade-in-scale 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards",
+        "twinkle": "twinkle 3s ease-in-out infinite",
+        "twinkle-delayed": "twinkle-delayed 4s ease-in-out infinite",
+        "shooting-star": "shooting-star 2s ease-out forwards",
       },
     },
   },
