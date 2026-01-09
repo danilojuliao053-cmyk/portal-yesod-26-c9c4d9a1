@@ -1,10 +1,40 @@
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useElementParallax } from '@/hooks/use-parallax';
 import { Headphones, Brain, Rocket, X, Check } from 'lucide-react';
+
+// Floating particle component
+const FloatingParticle = ({ delay, x, size, color }: { delay: number; x: number; size: number; color: 'red' | 'gold' }) => (
+  <div
+    className="absolute rounded-full animate-float-slow pointer-events-none"
+    style={{
+      left: `${x}%`,
+      top: `${Math.random() * 100}%`,
+      width: `${size}px`,
+      height: `${size}px`,
+      background: color === 'red' 
+        ? `radial-gradient(circle, hsl(0 84% 60% / 0.6), transparent)`
+        : `radial-gradient(circle, hsl(var(--accent) / 0.6), transparent)`,
+      animationDelay: `${delay}s`,
+      filter: 'blur(1px)',
+    }}
+  />
+);
 
 export const WhatIsSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const parallax = useElementParallax(sectionRef, 0.15);
+  const [particles, setParticles] = useState<Array<{ id: number; delay: number; x: number; size: number; color: 'red' | 'gold' }>>([]);
+
+  useEffect(() => {
+    const newParticles = Array.from({ length: 16 }, (_, i) => ({
+      id: i,
+      delay: Math.random() * 8,
+      x: Math.random() * 100,
+      size: Math.random() * 6 + 3,
+      color: (i % 2 === 0 ? 'red' : 'gold') as 'red' | 'gold',
+    }));
+    setParticles(newParticles);
+  }, []);
 
   return (
     <section ref={sectionRef} className="py-20 px-4 gradient-mystic">
@@ -76,13 +106,20 @@ export const WhatIsSection = () => {
         </div>
 
         {/* Grid de comparação moderno */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-12">
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-6 mt-12">
+          {/* Partículas animadas de fundo */}
+          <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
+            {particles.map((p) => (
+              <FloatingParticle key={p.id} delay={p.delay} x={p.x} size={p.size} color={p.color} />
+            ))}
+          </div>
+
           {/* O que você NÃO precisa mais fazer */}
-          <div className="relative group">
+          <div className="relative group cursor-pointer">
             {/* Glow effect */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500/20 to-rose-500/20 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-red-500/30 to-rose-500/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
             
-            <div className="relative bg-gradient-to-br from-card via-card/95 to-background/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 h-full overflow-hidden">
+            <div className="relative bg-gradient-to-br from-card via-card/95 to-background/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 h-full overflow-hidden transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-2xl group-hover:shadow-red-500/20 group-hover:border-red-500/30">
               {/* Decorative corner accent */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-red-500/10 to-transparent rounded-bl-full" />
               
@@ -128,11 +165,11 @@ export const WhatIsSection = () => {
           </div>
 
           {/* O que você VAI conquistar */}
-          <div className="relative group">
+          <div className="relative group cursor-pointer">
             {/* Glow effect */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/20 to-yellow-500/20 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-accent/30 to-yellow-500/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
             
-            <div className="relative bg-gradient-to-br from-card via-card/95 to-background/80 backdrop-blur-xl border border-accent/20 rounded-3xl p-8 h-full overflow-hidden">
+            <div className="relative bg-gradient-to-br from-card via-card/95 to-background/80 backdrop-blur-xl border border-accent/20 rounded-3xl p-8 h-full overflow-hidden transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-2xl group-hover:shadow-accent/20 group-hover:border-accent/40">
               {/* Decorative corner accent */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-accent/10 to-transparent rounded-bl-full" />
               
